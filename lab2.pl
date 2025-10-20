@@ -48,9 +48,9 @@ solution(Sol) :- Sol=[
     member([BH,_,blue,_,_,_], Sol),
     member([NH,norwegian,_,_,_,_],Sol),
     adjacent(BH, NH),
-    member([WH,_,white,_,_,_],Sol),
+    member([WHH,_,white,_,_,_],Sol),
     member([GH,_,green,_,_,_],Sol),
-    WH - 1 =:= GH,
+    WHH - 1 =:= GH,
     member([_,_,green,_,coffee,_],Sol),
     member([3,_,_,_,milk,_],Sol),
     member([_,_,yellow,_,_,dunhill],Sol),
@@ -65,8 +65,8 @@ solution(Sol) :- Sol=[
     member([DH,_,_,_,_,dunhill],Sol),
     adjacent(HH, DH),
     member([_,german,_,_,_,rothmans],Sol),
-    member([WH,_,_,_,water,_],Sol),
-    adjacent(WH, MH),
+    member([WTH,_,_,_,water,_],Sol),
+    adjacent(WTH, MH),
     permutation([N1, N2, N3, N4, N5], [british, swedish, danish, norwegian, german]),
     permutation([C1, C2, C3, C4, C5], [red, white, blue, yellow, green]),
     permutation([P1, P2, P3, P4, P5], [bird, dog, horse, cat, fish]),
@@ -77,7 +77,9 @@ adjacent(A, B) :- A + 1 =:= B.
 adjacent(A, B) :- A - 1 =:= B.
 
 % S = [[1, norwegian, yellow, fish, tea, dunhill], [2, danish, blue, horse, beer, winfield], [3, british, red, bird, milk, pallmall], [4, swedish, green, dog, coffee, marlboro], [5, german, white, cat, water, rothmans]]
+% S = [[1, norwegian, yellow, cat, water, dunhill], [2, danish, blue, horse, tea, marlboro], [3, british, red, bird, milk, pallmall], [4, german, green, fish, coffee, rothmans], [5, swedish, white, dog, beer, winfield]]
 
 hasFish(N) :- solution(S), member([_,N,_,fish,_,_],S).
 
 % N = norwegian
+% N = german
